@@ -3,9 +3,9 @@
 left to right direction
 
 actor Cliente
-actor Vendas
-actor Produção
-actor Almoxarifado
+actor "Departamento de Vendas" as Vendas
+actor "Produção"
+actor "Almoxarifado e estocagem" as Almoxarifado
 actor Compras
 actor Operador
 actor Auxiliar
