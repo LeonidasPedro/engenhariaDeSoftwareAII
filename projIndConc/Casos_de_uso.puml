@@ -1,5 +1,5 @@
 @startuml
-
+!define LegoSkin
 left to right direction
 
 actor Cliente
@@ -24,6 +24,5 @@ rectangle "Controle de estoque" {
   Almoxarifado -- (Monitorar Estoque)
   Compras -- (Reposição de Estoque)
 }
-
 
 @enduml
