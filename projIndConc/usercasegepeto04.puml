@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+
+actor Cliente
+actor "Departamento de Vendas" as Vendas
+actor Produção
+actor "Almoxarifado e estocagem" as Almoxarifado
+actor Compras
+actor Operador
+actor Auxiliar
+actor Transportadora
+
+rectangle "Gerenciar Pedidos" {
+  Cliente -- (Solicitar Pedido)
+  Vendas -- (Processar Pedido)
+  Produção -- (Coordenar Produção)
+  Operador -- (Misturar Componentes)
+  Auxiliar -- (Misturar Componentes)
+  Transportadora -- (Entregar Concreto)
+}
+
+rectangle "Controle de estoque" {
+  Almoxarifado -- (Monitorar Estoque)
+  Compras -- (Reposição de Estoque)
+  (Monitorar Estoque) -- (Atualizar Estoque) : <<include>>
+(Reposição de Estoque) -- (Realizar Pedido de Reposição) : <<include>>
+(Reposição de Estoque) -- (Verificar Entrega) : <<include>>
+
+}
+
+
+@enduml
