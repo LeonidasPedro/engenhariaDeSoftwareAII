@@ -32,6 +32,9 @@ Operador
 Auxiliar
 Transportadora
 
+## Diagrama de Casos de Uso
+
+![Diagrama de Casos de Uso](../img/Casos_de_Uso.png)
 
 
 
