@@ -1,0 +1,48 @@
+@startuml
+class Cliente {
+  - nome: String
+  - endereco: String
+  - telefone: String
+}
+
+class Pedido {
+  - numero: String
+  - tipoConcreto: String
+  - quantidade: int
+}
+
+class DepartamentoDeVendas {
+}
+
+class Producao {
+}
+
+class AlmoxarifadoEstocagem {
+}
+
+class Compras {
+}
+
+class Operador {
+}
+
+class Auxiliar {
+}
+
+class Transportadora {
+}
+
+class Material {
+  - nome: String
+  - quantidade: int
+}
+
+Cliente "1" -- "1..*" Pedido
+DepartamentoDeVendas "1" -- "1..*" Pedido
+Producao "1" -- "1..*" Pedido
+Producao "1" -- "1..*" Operador
+Producao "1" -- "1..*" Auxiliar
+Producao "1" -- "1..*" Transportadora
+AlmoxarifadoEstocagem "1" -- "0..*" Material
+Compras "1" -- "0..*" Material
+@enduml
