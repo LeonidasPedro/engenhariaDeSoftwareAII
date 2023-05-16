@@ -8,8 +8,8 @@ Descrição: O departamento de Compras realiza a reposição de materiais quando
 
 Requisitos do Sistema:
 
-    RS6: O sistema deve permitir a solicitação de reposição de materiais.
-    RS7: O sistema deve registrar e controlar as solicitações de reposição.
+    R14: O sistema deve permitir a solicitação de reposição de materiais.
+    R15: O sistema deve registrar e controlar as solicitações de reposição.
 
 Funções Básicas:
 
@@ -41,16 +41,16 @@ Pós-condições: N/A
 
 | Ação do Ator                         | Resposta do Sistema                            | Função Básica / Requisito |
 |--------------------------------------|------------------------------------------------|--------------------------|
-| O departamento de Compras            | 2. O sistema exibe a lista de materiais com    | RS6                      |
+| O departamento de Compras            | 2. O sistema exibe a lista de materiais com    | R14                      |
 | acessa a funcionalidade de           | estoque abaixo do nível de segurança.          |                          |
 | reposição de estoque.                 |                                                |                          |
-| O departamento de Compras            | 3. O sistema solicita informações para a       | FB7, RS6                 |
+| O departamento de Compras            | 3. O sistema solicita informações para a       | FB7, R14                 |
 | analisa os níveis de estoque.         | reposição do material, como quantidade e        |                          |
 |                                       | fornecedor.                                    |                          |
 | O departamento de Compras            | 4. O departamento de Compras fornece as         |                          |
 | preenche as informações para a       | informações solicitadas.                       |                          |
 | reposição do material.                |                                                |                          |
-| O departamento de Compras            | 6. O sistema registra a solicitação de         | FB8, RS7                 |
+| O departamento de Compras            | 6. O sistema registra a solicitação de         | FB8, R15                 |
 | confirma a solicitação de reposição. | reposição com as informações fornecidas.        |                          |
 |                                       |                                                |                          |
 | O departamento de Compras            | 8. O departamento de Compras pode acompanhar   | FB9                      |
