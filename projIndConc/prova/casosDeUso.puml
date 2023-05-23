@@ -1,0 +1,36 @@
+@startuml
+left to right direction
+
+actor Cliente as cliente
+actor Funcionário as funcionario
+
+rectangle Sistema {
+
+  
+  usecase "Fazer Pedido" as fazer_pedido
+  usecase "Visualizar Status do Pedido" as visualizar_pedido
+  usecase "Visualizar Informações do Pedido" as visualizar_informacoes
+  usecase "Atualizar Status do Pedido" as atualizar_status
+  usecase "Gerenciar Pedidos" as gerenciar_pedidos
+  usecase "Processar Pagamento" as processar_pagamento
+  usecase "Enviar Email de Confirmação" as enviar_email
+
+
+  cliente -- fazer_pedido
+  cliente -- visualizar_pedido
+  cliente -- visualizar_informacoes
+
+  funcionario -- gerenciar_pedidos
+  funcionario -- atualizar_status
+  funcionario -- visualizar_pedido
+  funcionario -- visualizar_informacoes
+
+
+ 
+
+  processar_pagamento -r-> (fazer_pedido) #line.dashed : <<extend>>
+  enviar_email -l-> (fazer_pedido) #line.dashed : <<include>>
+
+}
+
+@enduml

@@ -1,0 +1,49 @@
+@startuml
+
+class Cliente {
+  -id: int
+  -nome: string
+  -email: string
+  -endereco: string
+}
+
+class Funcionario {
+  -id: int
+  -nome: string
+  -cargo: string
+}
+
+class Pedido {
+  -id: int
+  -cliente: Cliente
+  -carrinho: Carrinho
+  -status: string
+  -dataEntrega: date
+}
+
+class Produto {
+  -id: int
+  -nome: string
+  -preco: float
+}
+
+class Carrinho {
+  -cliente: Cliente
+  -produtos: Produto[]
+}
+
+class Sistema {
+  -clientes: Cliente[]
+  -funcionarios: Funcionario[]
+  -pedidos: Pedido[]
+}
+
+Cliente "1" -- "1" Carrinho
+Carrinho "1" -- "0..*" Produto
+Carrinho "1" -- "1" Pedido
+Sistema "1" -- "*" Cliente
+Sistema "1" -- "*" Funcionario
+Sistema "1" -- "*" Pedido
+Pedido "1..*" -- "1" Cliente
+
+@enduml
