@@ -1,0 +1,88 @@
+@startuml
+class Usuario {
+  - tipo: String
+  - matricula: String
+  - senha: String
+  + getTipo(): String
+  + setTipo(tipo: String): void
+  + getMatricula(): String
+  + setMatricula(matricula: String): void
+  + getSenha(): String
+  + setSenha(senha: String): void
+}
+
+class Setor {
+  - nome: String
+  - descricao: String
+  + getNome(): String
+  + setNome(nome: String): void
+  + getDescricao(): String
+  + setDescricao(descricao: String): void
+}
+
+class Funcionario extends Usuario {
+  - cargo: String
+  + getCargo(): String
+  + setCargo(cargo: String): void
+}
+
+class Cliente extends Usuario {
+  - endereco: String
+  - telefone: String
+  + getEndereco(): String
+  + setEndereco(endereco: String): void
+  + getTelefone(): String
+  + setTelefone(telefone: String): void
+}
+
+class DepartamentoDeVendas extends Setor {
+  + processarPedido(pedido: Pedido): void
+}
+
+class Producao extends Setor {
+  + coordenarProducao(pedido: Pedido): void
+  + misturarComponentes(): void
+}
+
+class Operador extends Funcionario {
+  + misturarComponentes(): void
+}
+
+class Auxiliar extends Funcionario {
+  + misturarComponentes(): void
+}
+
+class AlmoxarifadoEstocagem extends Setor {
+  + monitorarEstoque(): void
+  + atualizarEstoque(): void
+}
+
+class Compras extends Setor {
+  + reposicaoEstoque(): void
+  + verificarEntrega(): void
+}
+
+class Transportadora extends Setor {
+  + entregarConcreto(): void
+}
+
+class Pedido {
+  - numero: String
+  - tipoConcreto: String
+  - quantidade: int
+}
+
+class Material {
+  - descricao: String
+  - quantidade: Float
+}
+
+Cliente "1" -- "1..*" Pedido
+DepartamentoDeVendas "1" -- "1..*" Pedido
+Producao "1" -- "1..*" Pedido
+Producao "1" -- "1..*" Operador
+Producao "1" -- "1..*" Auxiliar
+Producao "1" -- "1..*" Transportadora
+AlmoxarifadoEstocagem "1" -- "0..*" Material
+Compras "1" -- "0..*" Material
+@enduml

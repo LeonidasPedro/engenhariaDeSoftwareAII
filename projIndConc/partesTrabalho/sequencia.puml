@@ -1,0 +1,42 @@
+@startuml sequencia_ProjIndConc
+    actor Cliente
+    actor "Departamento de Vendas" as Vendas
+    actor Produção
+    actor "Almoxarifado e estocagem" as Almoxarifado
+    actor Compras
+    actor Operador
+    actor Auxiliar
+    actor Transportadora
+
+    activate Cliente
+    Cliente -> Vendas: Solicitar Pedido
+    activate Vendas
+    Vendas -> Produção: Processar Pedido
+    activate Produção
+    Produção -> Operador: Coordenar Produção
+    activate Operador
+    Produção -> Auxiliar: Coordenar Produção
+    activate Auxiliar
+    Produção --> Operador: Misturar Componentes
+    Produção --> Auxiliar: Misturar Componentes
+    deactivate Operador
+    deactivate Auxiliar
+    deactivate Produção
+    Vendas -> Almoxarifado: Coordenar Estoque
+    activate Almoxarifado
+    Almoxarifado --> Almoxarifado: Monitorar Estoque
+    Almoxarifado --> Compras: Reposição de Estoque
+    activate Compras
+    Compras -> Almoxarifado: Realizar Pedido de Reposição
+    Compras -> Almoxarifado: Verificar Entrega
+    Compras --> Almoxarifado: Atualizar Estoque
+    deactivate Compras
+    Almoxarifado --> Vendas: Responder Estoque
+    deactivate Almoxarifado
+    Vendas -> Transportadora: Coordenar Entrega
+    activate Transportadora
+    Transportadora -> Cliente: Entregar Concreto
+    deactivate Transportadora
+    deactivate Vendas
+    deactivate Cliente
+@enduml
